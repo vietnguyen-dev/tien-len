@@ -1,24 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+import PlayersForm from './components/PlayersForm'
+import Game from './components/Game';
+import { Box } from '@chakra-ui/layout';
 
-function App() {
+const App = () => {
+  const [gameState, setGameState] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box  bg='aquamarine' height='100vh' p='30' className="App"> 
+      {gameState ? <Game /> : <PlayersForm setGameState={setGameState}/>}
+    </Box>
   );
 }
 
